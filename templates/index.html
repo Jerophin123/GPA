@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>GPA Calculator</h1>
+        <form id="gpaForm" method="post" action="/calculate">
+            <label for="student_name">Student Name:</label>
+            <input type="text" id="student_name" name="student_name" required>
+            
+            <label for="num_subjects">Number of Subjects:</label>
+            <input type="number" id="num_subjects" name="num_subjects" min="1" value="1" required>
+            
+            <div id="subjectsContainer"></div>
+            
+            <div class="button-container">
+                <button type="button" id="addSubjectBtn">Add Subject</button>
+                <button type="submit">Calculate</button>
+                <button type="button" id="toggleDarkModeBtn">Toggle Dark Mode</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('addSubjectBtn').addEventListener('click', function() {
+            const numSubjects = document.getElementById('num_subjects').value;
+            const subjectsContainer = document.getElementById('subjectsContainer');
+            subjectsContainer.innerHTML = '';
+            for (let i = 0; i < numSubjects; i++) {
+                subjectsContainer.innerHTML += `
+                    <div class="subject">
+                        <h3>Subject ${i + 1}</h3>
+                        <label for="subject_code_${i}">Subject Code:</label>
+                        <input type="text" id="subject_code_${i}" name="subject_code_${i}" required>
+                        
+                        <label for="subject_name_${i}">Subject Name:</label>
+                        <input type="text" id="subject_name_${i}" name="subject_name_${i}" required>
+                        
+                        <label for="grade_point_${i}">Grade Point:</label>
+                        <input type="number" id="grade_point_${i}" name="grade_point_${i}" min="0" max="10" step="0.01" required>
+                        
+                        <label for="credit_${i}">Credit:</label>
+                        <input type="number" id="credit_${i}" name="credit_${i}" min="0" step="0.1" required>
+                    </div>
+                `;
+            }
+        });
+
+        document.getElementById('toggleDarkModeBtn').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Initialize with one subject input set
+        document.getElementById('addSubjectBtn').click();
+    </script>
+</body>
+</html>
