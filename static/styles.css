@@ -9,6 +9,8 @@
     --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     --sticky-box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     --heading-gradient: linear-gradient(135deg, #4CAF50 10%, #2196F3 100%);
+    --mica-bg: rgba(255, 255, 255, 0.6);
+    --mica-blur: 20px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,8 +18,8 @@
         --bg-color: #333;
         --text-color: white;
         --container-bg: rgba(0, 0, 0, 0.85);
-        --button-bg: linear-gradient(135deg, #2196F3 10%, #4CAF50 100%);
-        --button-hover-bg: linear-gradient(135deg, #4CAF50 10%, #2196F3 100%);
+        --button-bg: linear-gradient(135deg, #1B7AC3 10%, #3D8B41 100%); /* Dimmed colors */
+        --button-hover-bg: linear-gradient(135deg, #3D8B41 10%, #1B7AC3 100%); /* Dimmed colors */
         --border-color: #555;
         --subject-border-color: #555;
         --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
@@ -25,6 +27,8 @@
         --button-text-color: black;
         --input-bg-color: #555;
         --input-text-color: white;
+        --mica-bg: rgba(0, 0, 0, 0.6);
+        --heading-gradient: linear-gradient(135deg, #1B7AC3 10%, #3D8B41 100%); /* Dimmed colors */
     }
 }
 
@@ -49,7 +53,8 @@ body {
 
 /* Center the container and apply styling */
 .container {
-    background: var(--container-bg);
+    background: var(--mica-bg);
+    backdrop-filter: blur(var(--mica-blur));
     padding: 1rem;
     border-radius: 10px;
     box-shadow: var(--box-shadow);
@@ -110,11 +115,13 @@ input[type="number"] {
     justify-content: space-evenly;
     margin-top: 0.5rem;
     padding-top: 0.5rem;
-    background: var(--container-bg);
+    background: var(--mica-bg);
+    backdrop-filter: blur(var(--mica-blur));
     position: sticky;
     bottom: 0;
     padding-bottom: 0.5rem;
     box-shadow: var(--sticky-box-shadow);
+    border-radius: 25px; /* Make the button container rounded like a capsule */
 }
 
 /* Make the buttons capsule shaped */
@@ -161,3 +168,5 @@ button:hover {
         width: 45%;
     }
 }
+
+
