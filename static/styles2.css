@@ -1,0 +1,131 @@
+:root {
+    --bg-color: white;
+    --text-color: #333;
+    --container-bg: rgba(255, 255, 255, 0.95);
+    --button-bg: linear-gradient(135deg, #4CAF50 10%, #2196F3 100%);
+    --button-hover-bg: linear-gradient(135deg, #2196F3 10%, #4CAF50 100%);
+    --border-color: #ccc;
+    --subject-border-color: #ddd;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --sticky-box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    --heading-gradient: linear-gradient(135deg, #4CAF50 10%, #2196F3 100%);
+    --header-bg-color: #f2f2f2;
+    --header-text-color: #000;
+    --button-text-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #333;
+        --text-color: white;
+        --container-bg: rgba(0, 0, 0, 0.85);
+        --button-bg: linear-gradient(135deg, #2196F3 10%, #4CAF50 100%);
+        --button-hover-bg: linear-gradient(135deg, #4CAF50 10%, #2196F3 100%);
+        --border-color: #555;
+        --subject-border-color: #555;
+        --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        --sticky-box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        --button-text-color: black;
+        --input-bg-color: #555;
+        --input-text-color: white;
+        --header-bg-color: #444;
+        --header-text-color: #fff;
+    }
+}
+
+/* Reset some basic styles */
+body, h1, table, th, td {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply a new gradient background to the body */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4CAF50 10%, #2196F3 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+/* Center the container and apply styling */
+.container {
+    background: var(--container-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+/* Add margin to the title and apply gradient */
+h1 {
+    margin-bottom: 1rem;
+    background: var(--heading-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
+    transition: background-color 0.3s ease;
+}
+
+th {
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    font-weight: bold;
+    text-align: center;
+}
+
+tr:hover td {
+    background-color: #e3e3e3;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+
+    th, td {
+        font-size: 0.875rem;
+    }
+
+    table {
+        margin-top: 0.5rem;
+    }
+}
+
+a {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--button-bg);
+    color: var(--button-text-color);
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+a:hover {
+    background: var(--button-hover-bg);
+}
