@@ -21,7 +21,6 @@
             <div class="button-container">
                 <button type="button" id="addSubjectBtn">Add Subject</button>
                 <button type="submit">Calculate</button>
-                <button type="button" id="toggleDarkModeBtn">Toggle Dark Mode</button>
             </div>
         </form>
     </div>
@@ -50,12 +49,10 @@
             }
         });
 
-        document.getElementById('toggleDarkModeBtn').addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-        });
-
         // Initialize with one subject input set
         document.getElementById('addSubjectBtn').click();
     </script>
 </body>
 </html>
+
+
