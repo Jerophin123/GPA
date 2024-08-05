@@ -1,7 +1,7 @@
 :root {
     --bg-color: white;
     --text-color: #333;
-    --container-bg: rgba(255, 255, 255, 0.95);
+    --container-bg: rgba(255, 255, 255, 0.85); /* Slightly increased transparency for better mica effect */
     --button-bg: linear-gradient(135deg, #4CAF50 10%, #2196F3 100%);
     --button-hover-bg: linear-gradient(135deg, #2196F3 10%, #4CAF50 100%);
     --border-color: #ccc;
@@ -12,15 +12,16 @@
     --header-bg-color: #f2f2f2;
     --header-text-color: #000;
     --button-text-color: white;
+    --mica-blur: 15px; /* Added blur amount for mica effect */
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --bg-color: #333;
         --text-color: white;
-        --container-bg: rgba(0, 0, 0, 0.85);
-        --button-bg: linear-gradient(135deg, #2196F3 10%, #4CAF50 100%);
-        --button-hover-bg: linear-gradient(135deg, #4CAF50 10%, #2196F3 100%);
+        --container-bg: rgba(0, 0, 0, 0.75); /* Slightly increased transparency for better mica effect */
+        --button-bg: linear-gradient(135deg, #1E88E5 10%, #388E3C 100%); /* Dimmed colors */
+        --button-hover-bg: linear-gradient(135deg, #388E3C 10%, #1E88E5 100%); /* Dimmed colors */
         --border-color: #555;
         --subject-border-color: #555;
         --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
@@ -30,6 +31,8 @@
         --input-text-color: white;
         --header-bg-color: #444;
         --header-text-color: #fff;
+        --mica-blur: 15px; /* Added blur amount for mica effect */
+        --heading-gradient: linear-gradient(135deg, #1E88E5 10%, #388E3C 100%); /* Dimmed colors */
     }
 }
 
@@ -55,6 +58,7 @@ body {
 /* Center the container and apply styling */
 .container {
     background: var(--container-bg);
+    backdrop-filter: blur(var(--mica-blur));
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: var(--box-shadow);
@@ -129,3 +133,4 @@ a {
 a:hover {
     background: var(--button-hover-bg);
 }
+
