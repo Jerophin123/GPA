@@ -30,6 +30,7 @@ echo -e "                                                               "
 echo -e "                                                               ${RESET}"
 
 # Launch the Python script
-gunicorn app_mob:app
+gunicorn --bind 0.0.0.0:8080 app_mob:app
+
 
 
